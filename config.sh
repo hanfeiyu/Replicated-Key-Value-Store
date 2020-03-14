@@ -17,10 +17,10 @@ JAR_FILE="GenericNode.jar"
 
 show_usage() {
     echo "Usage: "
-    echo "      <--df_test> <number of servers> | prepare DF test, 5 DF servers and 1 client will be created"
-    echo "      <--u_test> <number of servers> | prepare DF test, 5 U servers and 1 client will be created"
-    echo "      <--t_test_central> | prepare T test, 1 T central server will be created"
-    echo "      <--t_test_member> <number of member servers> | prepare T test, 5 T member servers will be created. *** NOTICE! This parameter will only take effect after <--t_test_central> is executed ***"
+    echo "      --df_test <number of servers> | prepare DF test, 5 DF servers and 1 client will be created"
+    echo "      --u_test <number of servers> | prepare DF test, 5 U servers and 1 client will be created"
+    echo "      --t_test_central | prepare T test, 1 T central server will be created"
+    echo "      --t_test_member <number of member servers> | prepare T test, 5 T member servers will be created. *** NOTICE! This parameter will only take effect after <--t_test_central> is executed ***"
 
     exit
 }
