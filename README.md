@@ -15,23 +15,23 @@
   - Mac Darwin
 
 # Usage
-  - Features of `config.sh`: 
-    - Remove old built images and containers that includes "tcss558server"/"tcss558client" in the name 
-    - Build new docker images and containers  
-    - Prepare DF/U/T tests 
+- Features of `config.sh`: 
+1. Remove old built images and containers that includes "tcss558server"/"tcss558client" in the name 
+2. Build new docker images and containers  
+3. Prepare DF/U/T tests 
 
-  -  Parameters of `config.sh`: 
-    - `./config.sh --df_test <number of servers>` | prepare DF test, number of DF servers and 1 client will be created 
-    - `./config.sh --u_test <number of servers>` | prepare DF test, number of U servers and 1 client will be created" 
-    - `./config.sh --t_test_central` | prepare T test, 1 T central server will be created" 
-    - `./config.sh --t_test_member <number of member servers>` | prepare T test, number of T member servers will be created. \*\*\* NOTICE! This parameter will only take effect after `./config.sh <--t_test_central>` is executed \*\*\* 
-    - `./config.sh --clean` | clean all the images and containers related to assignment 2 
+- Parameters of `config.sh`:
+1. `./config.sh --df_test <number of servers>` | prepare DF test, number of DF servers and 1 client will be created 
+2. `./config.sh --u_test <number of servers>` | prepare DF test, number of U servers and 1 client will be created" 
+3. `./config.sh --t_test_central` | prepare T test, 1 T central server will be created" 
+4. `./config.sh --t_test_member <number of member servers>` | prepare T test, number of T member servers will be created. \*\*\* NOTICE! This parameter will only take effect after `./config.sh <--t_test_central>` is executed \*\*\* 
+5. `./config.sh --clean` | clean all the images and containers related to assignment 2 
 
-  - In each server container:
-    - Use `ifconfig` to obtain IP address of TCP servers 
+- In each server container:
+Use `ifconfig` to obtain IP address of TCP servers 
 
-  - In the client container:
-    - Use `./bigtest_tc.sh <TCP server IP address>` to run big test of TCP 
+- In the client container:
+Use `./bigtest_tc.sh <TCP server IP address>` to run big test of TCP 
 
 # Testing instructions for DF/U/T
   - DF test
