@@ -21,11 +21,11 @@
     - Prepare DF/U/T tests 
 
 - Parameters of `config.sh`:
-    - `./config.sh --df_test <number of servers>` | prepare DF test, number of DF servers and 1 client will be created 
-    - `./config.sh --u_test <number of servers>` | prepare DF test, number of U servers and 1 client will be created" 
-    - `./config.sh --t_test_central` | prepare T test, 1 T central server will be created" 
-    - `./config.sh --t_test_member <number of member servers>` | prepare T test, number of T member servers will be created. \*\*\* NOTICE! This parameter will only take effect after `./config.sh <--t_test_central>` is executed \*\*\* 
-    - `./config.sh --clean` | clean all the images and containers related to assignment 2 
+    - `./config.sh --df_test <number of servers>`: prepare DF test, number of DF servers and 1 client will be created 
+    - `./config.sh --u_test <number of servers>`: prepare DF test, number of U servers and 1 client will be created 
+    - `./config.sh --t_test_central`: prepare T test, 1 T central server will be created 
+    - `./config.sh --t_test_member <number of member servers>`: prepare T test, number of T member servers will be created. \*\*\* NOTICE! This parameter will only take effect after `./config.sh <--t_test_central>` is executed \*\*\* 
+    - `./config.sh --clean`: clean all the images and containers related to assignment 2 
 
 - In each server container:
     - Use `ifconfig` to obtain IP address of TCP servers 
