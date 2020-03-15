@@ -30,10 +30,7 @@ public class Main {
 	
 	// Main function
 	public static void main(String[] args) {
-		System.out.println("args.length: " + args.length);
-		
 		if (args.length < 2) {
-			System.out.println("bp1");
 			showUsage();
 			System.exit(0);
 		}
@@ -42,7 +39,6 @@ public class Main {
 		if (args[0].equals("ts")) {
 			if (args.length > 4) {
 				showUsage();
-				System.out.println("bp2");
 				System.exit(0);
 			}
 
@@ -73,7 +69,6 @@ public class Main {
 				break;
 			default:
 				showUsage();
-				System.out.println("bp1");
 				System.exit(0);
 				break;		
 			}
