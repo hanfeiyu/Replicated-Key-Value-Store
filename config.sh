@@ -1,9 +1,9 @@
 #! /bin/bash
 
 
-DOCKER_CLIENT_PATH="./a1_dockerfiles/docker_client"
+DOCKER_CLIENT_PATH="./a2_dockerfiles/docker_client"
 
-DOCKER_SERVER_PATH="./a1_dockerfiles/docker_server"
+DOCKER_SERVER_PATH="./a2_dockerfiles/docker_server"
 
 DOCKER_SERVER_TYPE=("tcss558server_df" "tcss558server_u" "tcss558server_t_central" "tcss558server_t_member")
 

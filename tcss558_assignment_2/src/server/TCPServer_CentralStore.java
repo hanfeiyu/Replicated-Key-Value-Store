@@ -123,13 +123,11 @@ public class TCPServer_CentralStore extends Server {
 		        	if (!nodeList.contains(memberAddr)) {
 		        		nodeList.add(memberAddr);
 		        	}
-//			        System.out.println("QUERY_PUT, nodeList: " + nodeList);
 		        	
 		        } else if (memberQuery[0].equals(QUERY_GET)) {
 				    // Write response
 			        PrintWriter os = new PrintWriter(socket.getOutputStream());
 			        String response = ListToString(nodeList);
-//			        System.out.println("QUERY_GET, nodeList: " + nodeList);
 				    
 				    // Reply to client
 		        	os.println(response);
@@ -137,11 +135,9 @@ public class TCPServer_CentralStore extends Server {
 		        	
 		        	// Close output utilities
 		        	os.close();  
-//		        	socket.shutdownOutput();
 		        }		        
 		        
 		        // Close other utilities
-//		        socket.shutdownInput();	
 			    is.close();
 			    br.close();
 			    socket.close();	    

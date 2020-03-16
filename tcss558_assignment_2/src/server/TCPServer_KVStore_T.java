@@ -8,8 +8,6 @@ import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.LinkedList;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.FutureTask;
 
 
 public class TCPServer_KVStore_T extends Server {
@@ -21,7 +19,6 @@ public class TCPServer_KVStore_T extends Server {
 	
 	private static final String ABORT_RESPONSE = "Server response: Error! Operation abort!";
 	private static final String PHASE_ONE_SUCCEED = "Phase one succeeded!";
-	private static final String PHASE_TWO_FAIL = "Phase two failed!";
 	
 	private static LinkedList<String> nodeList;
 	private String ipAddrCentralStore;
@@ -55,7 +52,6 @@ public class TCPServer_KVStore_T extends Server {
 			InputStreamReader is = new InputStreamReader(socket.getInputStream());
 		    BufferedReader br = new BufferedReader(is);
 			String response = br.readLine();
-//	    	System.out.println(response);
 	    	
 	    	// Reset node list based on response from central store
 	    	String membersAddr[] = response.split(" ");
@@ -246,12 +242,8 @@ public class TCPServer_KVStore_T extends Server {
                 e.printStackTrace();
             }
         	
-//            System.out.println("before check leader itself");
-//            System.out.println("leaderIpAddr: " + leaderIpAddr);
-//            System.out.println("memberIpAddr: " + memberIpAddr);   
-//            System.out.println("equals? -> " + leaderIpAddr.equals(memberIpAddr));   
+            // If the address is from leader itself
             if (leaderIpAddr.equals(memberIpAddr) && memberPortNum == portNum) {
-//            	System.out.println("It's leader!");
             	String leaderResponse = operate(leaderOperation);
             	
             	if (leaderResponse.equals("abort")) {
@@ -270,11 +262,8 @@ public class TCPServer_KVStore_T extends Server {
         			}
             	}
             	
-//            	System.out.println("phase one, leaderResponse: " + leaderResponse);
-            	
             	continue;
         	}
-//            System.out.println("before check leader itself");
         	
         	// Servers that aren't leader itself
         	try {
@@ -328,7 +317,6 @@ public class TCPServer_KVStore_T extends Server {
     			e.printStackTrace();
     		}
 
-//        	System.out.println("phaseOneResponse: " + phaseOneResponse);
         	if (phaseOneResponse == null) {
         		continue;
         	} else if (phaseOneResponse.equals(ABORT_RESPONSE)) {
@@ -376,9 +364,9 @@ public class TCPServer_KVStore_T extends Server {
                 e.printStackTrace();
             }
         	
+            // If the address is from leader itself
             if (leaderIpAddr.equals(memberIpAddr) && memberPortNum == portNum) {
             	String leaderResponse = operate(leaderOperation);
-//            	System.out.println("phase two, leaderResponse: " + leaderResponse);
             	phaseTwoResponse = leaderResponse;
             	
             	continue;
@@ -397,13 +385,6 @@ public class TCPServer_KVStore_T extends Server {
     			InputStreamReader leaderIs = new InputStreamReader(leaderSocket.getInputStream());
     		    BufferedReader leaderBr = new BufferedReader(leaderIs);
     			String memberResponse = leaderBr.readLine();
-//    			System.out.println("phase two, memberResponse: " + memberResponse);
-    			
-//    			if (!memberResponse.equals(leaderResponse)) {
-//    				phaseTwoResponse = PHASE_TWO_FAIL;
-//    			} else {
-//    				phaseTwoResponse = leaderResponse;
-//    			}
     	    	
     	    	// Close all utilities
     	    	leaderSocket.shutdownOutput();	
@@ -418,7 +399,6 @@ public class TCPServer_KVStore_T extends Server {
     		}
         }
         
-//        System.out.println("phase two, phaseTwoResponse: " + phaseTwoResponse);
         return phaseTwoResponse;
 	}
 	
@@ -441,7 +421,6 @@ public class TCPServer_KVStore_T extends Server {
 		// Phase two
 		phaseTwoResponse = phaseTwo(operation);
 		response = phaseTwoResponse;
-//		System.out.println("algorithm, response: " + response);
 		return response;
 	}
 	
@@ -478,21 +457,6 @@ public class TCPServer_KVStore_T extends Server {
 				
 		        // Write response
 		        PrintWriter os = new PrintWriter(socket.getOutputStream());
-		        
-		    	// Analyze message and execute it in parallel
-//		        OperateThread serverThread = new OperateThread(operation);
-//		        FutureTask<String> futureTask = new FutureTask<String>(serverThread);
-//		        Thread thread = new Thread(futureTask);
-//		        thread.start();
-//		        
-//		        String response = null;
-//				try {
-//					response = futureTask.get();
-//				
-//				} catch (InterruptedException | ExecutionException e) {
-//					e.printStackTrace();
-//				}
-		        
 		        String response = null;
 		        
 		        // Check if the operation is put or del
@@ -500,7 +464,6 @@ public class TCPServer_KVStore_T extends Server {
 		        	//
 		        	// Leader has arise!!!
 		        	//
-//		        	System.out.println("twoPhaseAlgorithm");
 		        	response = twoPhaseAlgorithm(operation);
 		        } else {
 		        	// Analyze message and execute it while operation is not put or del

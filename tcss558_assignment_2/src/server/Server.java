@@ -48,12 +48,8 @@ public abstract class Server {
 	public String put(String key, String value) {
 		String putResponse = null;
 		
-		if (store.containsKey(key)) {
-			putResponse = "Server response: key=" + key + " already exists, please try again with a new key";		
-		} else {
-			store.put(key, value);
-			putResponse = "Server response: put key=" + key;
-		}
+		store.put(key, value);
+		putResponse = "Server response: put key=" + key;
 		
 		return putResponse;
 	}

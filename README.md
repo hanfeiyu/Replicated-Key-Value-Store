@@ -32,12 +32,13 @@
 
 - In the client container:
     - Use `./bigtest_tc.sh <TCP server IP address>` to run big test of TCP 
+    - \*\*\* When testing `store`, command `java -jar GenericNode.jar tc <Server IP> <Server port> store | grep -o "key" | wc -l` can help you count the total number of keys in database \*\*\*
 
 # Testing instructions for DF/U/T
   - DF test
     - Execute `./config.sh --df_test <number of servers>` 
     - Use `ifconfig` to obtain `<TCP server IP address>` of TCP servers in each server container
-    - Use `<TCP server IP address>` to update `/tmp/node.cfg` manually in each server container 
+    - Use `<TCP server IP address>` to update `/tmp/nodes.cfg` manually in each server container, `vim /tmp/nodes.cfg`, vim already installed 
     - You may start testing by executing `./bigtest_tc.sh <TCP server IP address>` 
 
   - U test
