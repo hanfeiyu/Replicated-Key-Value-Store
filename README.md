@@ -35,18 +35,18 @@
     - \*\*\* When testing `store`, command `java -jar GenericNode.jar tc <Server IP> <Server port> store | grep -o "key" | wc -l` can help you count the total number of keys in database \*\*\*
 
 # Testing instructions for DF/U/T
-  - DF test
+  - DF test (Static node discovery, nodes.cfg will be refreshed every 1 second)
     - Execute `./config.sh --df_test <number of servers>` 
     - Use `ifconfig` to obtain `<TCP server IP address>` of TCP servers in each server container
     - Use `<TCP server IP address>` to update `/tmp/nodes.cfg` manually in each server container, `vim /tmp/nodes.cfg`, vim already installed 
     - You may start testing by executing `./bigtest_tc.sh <TCP server IP address>` 
 
-  - U test
+  - U test (Dynamic node discovery)
     - Execute `./config.sh --u_test <number of servers>` 
     - Use `ifconfig` to obtain `<TCP server IP address>` of TCP servers 
     - You may start testing by executing `./bigtest_tc.sh <TCP server IP address>` 
 
-  - T test
+  - T test (Dynamic node discovery)
     - Execute `./config.sh --t_test_central` first to activate a centralized membership KV store 
     - Use `ifconfig` to obtain `<central store IP address>` of central server in its container 
     - Update `./a2_dockerfiles/docker_server/tcss558server_t_member/runserver.sh` manually, i.e. update `T_CENTRAL_IP_ADDR` to be `<central store IP address>` 
