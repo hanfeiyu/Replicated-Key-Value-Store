@@ -49,7 +49,7 @@
   - T test
     - Execute `./config.sh --t_test_central` first to activate a centralized membership KV store 
     - Use `ifconfig` to obtain `<central store IP address>` of central server in its container 
-    - Update `./a1_dockerfiles/docker_server/tcss558server_t_member/runserver.sh` manually, i.e. update `T_CENTRAL_IP_ADDR` to be `<central store IP address>` 
+    - Update `./a2_dockerfiles/docker_server/tcss558server_t_member/runserver.sh` manually, i.e. update `T_CENTRAL_IP_ADDR` to be `<central store IP address>` 
     - Execute `./config.sh --t_test_member <number of member servers>` to activate a bunch of member KV stores  
     - Use `ifconfig` to obtain `<TCP server IP address>` of TCP servers in one of the member server container 
     - You may start testing by executing `./bigtest_tc.sh <TCP server IP address>`
