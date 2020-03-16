@@ -337,7 +337,9 @@ then
 else 
     echo ""
     echo "Error! Incorrect parameter!"
+    
     show_usage
+    exit
 fi
 
 clear_dangling 
