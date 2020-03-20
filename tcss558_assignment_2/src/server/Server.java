@@ -62,7 +62,7 @@ public abstract class Server {
 			String value = store.get(key);
 			getResponse = "Server response: get key=" + key + ", get value=" + value;
 		} else {
-			getResponse = "Server response: key=" + key + " doesn't exist";
+			getResponse = "Server response: get key=" + key + " doesn't exist";
 		}
 		
 		return getResponse;
@@ -76,7 +76,7 @@ public abstract class Server {
 			store.remove(key);
 			delResponse = "Server response: delete key=" + key;
 		} else {
-			delResponse = "Server response: key=" + key + " doesn't exist";
+			delResponse = "Server response: delete key=" + key + " doesn't exist";
 		}
 		
 		return delResponse;
@@ -91,9 +91,9 @@ public abstract class Server {
 		} else {
 			Set<String> keys = store.keySet();  
 		    
-			StringBuilder sb = new StringBuilder("Server response: ");
+			StringBuilder sb = new StringBuilder("Server response:*");
 			for (String key : keys) {
-				sb.append("{key=" + key + ", value=" + store.get(key) + "} ");
+				sb.append("{key=" + key + ", value=" + store.get(key) + "}*");
 			}
 			
 			if (sb.toString().getBytes().length > 65000) {

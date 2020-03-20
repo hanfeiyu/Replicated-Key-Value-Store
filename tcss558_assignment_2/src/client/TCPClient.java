@@ -28,8 +28,17 @@ public class TCPClient extends Client {
 			InputStreamReader is = new InputStreamReader(socket.getInputStream());
 		    BufferedReader br = new BufferedReader(is);
 			String response = br.readLine();
-	    	System.out.println(response);
-	    	
+			
+			// If operation is store, split the corresponding response into rows
+			if (operationInfo.split(" ")[0].equals("store")) {
+				String response_rows[] = response.split("\\*");
+				for (int i=0; i<response_rows.length-1; i++) {
+					System.out.println(response_rows[i]);
+				}
+			} else {
+				System.out.println(response);
+			}
+			
 	    	// Close all utilities
 	    	socket.shutdownOutput();	
 	    	socket.shutdownInput();
