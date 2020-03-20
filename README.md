@@ -12,7 +12,7 @@
   - Mac Darwin
 
 ## Testing OS 
-  - Mac Darwin
+  - Mac Darwin, Linux Ubuntu(Docker container)
 
 # Usage
 - Features of `config.sh`: 
@@ -32,7 +32,6 @@
 
 - In the client container:
     - Use `./bigtest_tc.sh <TCP server IP address>` to run big test of TCP 
-    - \*\*\* When testing `store`, command `java -jar GenericNode.jar tc <Server IP> <Server port> store | grep -o "key" | wc -l` can help you count the total number of keys in database \*\*\*
 
 # Testing instructions for DF/U/T
   - DF test (Static node discovery, nodes.cfg will be refreshed every 1 second)
