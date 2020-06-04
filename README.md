@@ -35,37 +35,37 @@
   - Mac Darwin, Linux Ubuntu(Docker container)
 
 # Usage
-- Features of `config.sh`: 
+### Features of `config.sh`: 
     - Remove old built images and containers that includes "tcss558server"/"tcss558client" in the name 
     - Build new docker images and containers 
     - Prepare DF/U/T tests 
 
-- Parameters of `config.sh`:
+### Parameters of `config.sh`:
     - `./config.sh --df_test <number of servers>`: prepare DF test, number of DF servers and 1 client will be created 
     - `./config.sh --u_test <number of servers>`: prepare DF test, number of U servers and 1 client will be created 
     - `./config.sh --t_test_central`: prepare T test, 1 T central server will be created 
     - `./config.sh --t_test_member <number of member servers>`: prepare T test, number of T member servers will be created. ***NOTICE! This parameter will only take effect after `./config.sh --t_test_central` is executed*** 
     - `./config.sh --clean`: clean all the images and containers related to assignment 2 
 
-- In each server container:
+### In each server container:
     - Use `ifconfig` to obtain IP address of TCP servers 
 
-- In the client container:
+### In the client container:
     - Use `./bigtest_tc.sh <TCP server IP address>` to run big test of TCP 
 
-# Testing instructions for DF/U/T
-  - DF test (Static node discovery, nodes.cfg will be refreshed every 1 second)
+# Testing instructions for DF/U/T (Dynamic File / UDP / TCP)
+### DF test (Static node discovery, nodes.cfg will be refreshed every 1 second)
     - Execute `./config.sh --df_test <number of servers>` 
     - Use `ifconfig` to obtain `<TCP server IP address>` of TCP servers in each server container
     - Use `<TCP server IP address>` to update `/tmp/nodes.cfg` manually in each server container, `vim /tmp/nodes.cfg`, vim already installed 
     - You may start testing by executing `./bigtest_tc.sh <TCP server IP address>` 
 
-  - U test (Dynamic node discovery)
+### U test (Dynamic node discovery)
     - Execute `./config.sh --u_test <number of servers>` 
     - Use `ifconfig` to obtain `<TCP server IP address>` of TCP servers 
     - You may start testing by executing `./bigtest_tc.sh <TCP server IP address>` 
 
-  - T test (Dynamic node discovery)
+### T test (Dynamic node discovery)
     - Execute `./config.sh --t_test_central` first to activate a centralized membership KV store 
     - Use `ifconfig` to obtain `<central store IP address>` of central server in its container 
     - Update `./a2_dockerfiles/docker_server/tcss558server_t_member/runserver.sh` manually, i.e. update `T_CENTRAL_IP_ADDR` to be `<central store IP address>` 
