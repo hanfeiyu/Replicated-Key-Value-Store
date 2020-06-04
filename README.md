@@ -61,7 +61,7 @@ Prepare T test, 1 T central server will be created
 ./config.sh --t_test_member <number of member servers>
 ```
 
-Prepare T test, number of T member servers will be created. ***NOTICE! This parameter will only take effect after `./config.sh --t_test_central` is executed*** 
+Prepare T test, number of T member servers will be created. ***NOTICE! This parameter will only take effect after `./config.sh --t_test_central` is executed!*** 
 
 ```
 ./config.sh --clean
