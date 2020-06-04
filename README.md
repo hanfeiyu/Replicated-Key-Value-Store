@@ -37,36 +37,41 @@
 ## Usage
 #### Features of `config.sh`
 
-- Remove old built images and containers that includes "tcss558server"/"tcss558client" in the name 
-- Build new docker images and containers 
-- Prepare DF/U/T tests 
+- Remove old built images and containers that includes "tcss558server"/"tcss558client" in the name.
+- Build new docker images and containers onto AWS EC2 instances.
+- Prepare DF/U/T tests.
 
 #### Parameters of `config.sh`
+
+Prepare DF test, number of DF servers and 1 client will be created 
 
 ```
 ./config.sh --df_test <number of servers>
 ```
-prepare DF test, number of DF servers and 1 client will be created 
+
+Prepare DF test, number of U servers and 1 client will be created 
 
 ```
 ./config.sh --u_test <number of servers>
 ``` 
-Prepare DF test, number of U servers and 1 client will be created 
+
+Prepare T test, 1 T central server will be created 
 
 ```
 ./config.sh --t_test_central 
-```
-Prepare T test, 1 T central server will be created 
-```
-./config.sh --t_test_member <number of member servers>
 ```
 
 Prepare T test, number of T member servers will be created. ***NOTICE! This parameter will only take effect after `./config.sh --t_test_central` is executed!*** 
 
 ```
+./config.sh --t_test_member <number of member servers>
+```
+
+Clean all the images and containers related to assignment 2 
+
+```
 ./config.sh --clean
 ```
-Clean all the images and containers related to assignment 2 
 
 #### In each server container:
 Use `ifconfig` to obtain IP address of TCP servers 
