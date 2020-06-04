@@ -7,13 +7,13 @@
 - Generic node supports both client and server side services.
 - Supports fault tolerance by implementing a two-phase algorithm based on
     simplified **RAFT-like** Consensus Algorithm.
-- Supports three different node auto-joining methods: 
-    - **Dynamic adjacent list**: Dynamic adjacency file will be read in each node
+- Supports three different **ad hoc** network auto-joining methods: 
+    - ***Dynamic adjacent list***: Dynamic adjacency file will be read in each node
         periodically.
-    - **UDP self-discovery**: Nodes will send and catch UDP packets to others
+    - ***UDP self-discovery***: Nodes will send and catch UDP packets to others
         periodically, a cluster based on this method will be able to
         self-discover all nodes within the topology. 
-    - **TCP centralized discovery**: A central communication center will be
+    - ***TCP centralized discovery***: A central communication center will be
         set up to find all the other nodes within the cluster on top of TCP.
 - Deployed using **Docker** containers as seperate ends on **AWS EC2** instances.
 - Automatic deployment and testing using **Shell/Bash** scripts.
