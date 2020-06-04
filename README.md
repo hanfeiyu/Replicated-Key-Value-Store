@@ -35,12 +35,14 @@
   - Mac Darwin, Linux Ubuntu(Docker container)
 
 # Usage
-### Features of `config.sh`: 
+### Features of `config.sh`
+
 - Remove old built images and containers that includes "tcss558server"/"tcss558client" in the name 
 - Build new docker images and containers 
 - Prepare DF/U/T tests 
 
-### Parameters of `config.sh`:
+### Parameters of `config.sh`
+
 ```
 ./config.sh --df_test <number of servers>
 ```
