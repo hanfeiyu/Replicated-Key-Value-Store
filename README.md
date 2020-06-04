@@ -8,7 +8,7 @@
 - Supports fault tolerance by implementing a two-phase algorithm based on
     simplified **RAFT-like** Consensus Algorithm.
 - Supports three different **ad hoc** network auto-joining methods: 
-    - ***Dynamic adjacent list***: Dynamic adjacency file will be read in each node
+    - ***Dynamic adjacent list***: Dynamic adjacency file will be loaded into each node
         periodically.
     - ***UDP self-discovery***: Nodes will send and catch UDP packets to others
         periodically, a cluster based on this method will be able to
