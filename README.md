@@ -97,4 +97,6 @@ Use `./bigtest_tc.sh <TCP server IP address>` to run big test of TCP
 ## Github link
 [hanfeiyu/Replicated-Key-Value-Store](https://github.com/hanfeiyu/Replicated-Key-Value-Store)
 
+## @Author
+[Hanfei Yu](https://github.com/hanfeiyu)
 
