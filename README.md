@@ -75,18 +75,18 @@ Use `ifconfig` to obtain IP address of TCP servers
 Use `./bigtest_tc.sh <TCP server IP address>` to run big test of TCP 
 
 # Testing instructions for DF/U/T (Dynamic File / UDP / TCP)
-### DF test (Static node discovery, nodes.cfg will be refreshed every 1 second)
+### DF test (nodes.cfg refreshed every 1 second)
 1. Execute `./config.sh --df_test <number of servers>` 
 2. Use `ifconfig` to obtain `<TCP server IP address>` of TCP servers in each server container
 3. Use `<TCP server IP address>` to update `/tmp/nodes.cfg` manually in each server container, `vim /tmp/nodes.cfg`, vim already installed 
 4. You may start testing by executing `./bigtest_tc.sh <TCP server IP address>` 
 
-### U test (Dynamic node discovery)
+### U test (UDP self-discovery)
 1. Execute `./config.sh --u_test <number of servers>` 
 2. Use `ifconfig` to obtain `<TCP server IP address>` of TCP servers 
 3. You may start testing by executing `./bigtest_tc.sh <TCP server IP address>` 
 
-### T test (Dynamic node discovery)
+### T test (TCP centralized discovery)
 1. Execute `./config.sh --t_test_central` first to activate a centralized membership KV store 
 2. Use `ifconfig` to obtain `<central store IP address>` of central server in its container 
 3. Update `./a2_dockerfiles/docker_server/tcss558server_t_member/runserver.sh` manually, i.e. update `T_CENTRAL_IP_ADDR` to be `<central store IP address>` 
